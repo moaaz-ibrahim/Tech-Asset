@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::truncate();
+       
 
         if (! Company::count()) {
             $this->call(CompanySeeder::class);
@@ -32,7 +33,18 @@ class UserSeeder extends Seeder
         }
 
         $departmentIds = Department::all()->pluck('id');
+        //Test user
+        User::factory()->create([
+            'email' => 'test@gmail.com',
+            'permissions' => '{"admin":"1"}',
+            'company_id' => $companyIds->random(),
+            'department_id' => $departmentIds->random(),
+            // 'activated' =>1,
+            'manager_id' => function () {
+                return User::where('permissions->superuser', '1')->first() ?? User::factory()->firstAdmin();
+            }
 
+        ]);
         User::factory()->count(1)->firstAdmin()
             ->state(new Sequence(fn($sequence) => [
                 'company_id' => $companyIds->random(),

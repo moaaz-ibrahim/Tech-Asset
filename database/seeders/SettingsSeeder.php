@@ -14,9 +14,9 @@ class SettingsSeeder extends Seeder
         Setting::truncate();
         $settings = new Setting;
         $settings->per_page = 20;
-        $settings->site_name = 'Tech Asset ';
+        $settings->site_name = 'Tech Asset';
         $settings->auto_increment_assets = 1;
-        $settings->logo = 'snipe-logo.png';
+        $settings->logo = 'Turn-logo.png';
         $settings->alert_email = 'service@snipe-it.io';
         $settings->header_color = null;
         $settings->barcode_type = 'QRCODE';

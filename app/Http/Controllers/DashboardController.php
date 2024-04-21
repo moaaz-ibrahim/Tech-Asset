@@ -41,6 +41,7 @@ class DashboardController extends Controller
                 Artisan::call('migrate', ['--force' => true]);
                 \Artisan::call('passport:install');
             }
+            // dd($asset_stats);
 
             return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts);
         } else {
