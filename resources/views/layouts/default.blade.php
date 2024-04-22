@@ -121,11 +121,11 @@
                         <div class="left-navblock">
                             @if ($snipeSettings->brand == '3')
                                 <a class="logo navbar-brand no-hover" href="/">
-                                    {{-- @if ($snipeSettings->logo!='')
+                                    @if ($snipeSettings->logo!='')
                                         <img class="navbar-brand-img"
-                                             src="./uploads/tech-asset"
+                                             src="/uploads/tech-asset.png"
                                              alt="{{ $snipeSettings->site_name }} logo">
-                                    @endif --}}
+                                    @endif
                                     <span class="brand-name">{{ $snipeSettings->site_name }}</span>
                                 </a>
                             @elseif ($snipeSettings->brand == '2')
